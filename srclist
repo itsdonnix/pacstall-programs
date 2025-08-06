@@ -2492,6 +2492,23 @@ pkgbase = dust-bin
 
 pkgname = dust-bin
 ---
+pkgbase = earlyoom-git
+	gives = earlyoom
+	pkgver = 1.8.2
+	pkgdesc = Userspace out-of-memory (OOM) killer for Linux
+	url = https://github.com/rfjakob/earlyoom
+	arch = any
+	depends = init-system-helpers>=1.54~
+	makedepends = pkgconf
+	makedepends = pandoc
+	breaks = earlyoom
+	license = MIT
+	maintainer = Don Alfons <donnisnoni@outlook.com>
+	source = https://github.com/rfjakob/earlyoom.git
+	sha256sums = SKIP
+
+pkgname = earlyoom-git
+---
 pkgbase = easy-zsh-config-git
 	gives = easy-zsh-config
 	pkgver = 0.6.2
