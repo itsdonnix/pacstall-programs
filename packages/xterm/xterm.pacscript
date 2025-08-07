@@ -48,28 +48,46 @@ maintainer=("Don Alfons <donnisnoni@outlook.com>")
 source=("@${pkgname}~${pkgver}::https://github.com/ThomasDickey/xterm-snapshots/archive/refs/tags/${pkgname}-${pkgver}.tar.gz")
 sha256sum=("3da2b5e64cb49b03aa13057d85e62e1f2e64f7c744719c00d338d11cd3e6ca1a")
 bins=('xterm' 'uxterm' 'koi8rxterm' 'lxterm')
-CFLAGS=(
+readonly CFLAGS=(
   '-g'
-  '-O2'
-  '-Werror=implicit-function-declaration'
-  '-fno-omit-frame-pointer'
-  '-mno-omit-leaf-frame-pointer'
+  '-Ofast'
+  '-march=native'
+  '-mtune=native'
   '-flto=auto'
   '-ffat-lto-objects'
+  '-fuse-linker-plugin'
+  '-funroll-loops'
+  '-fomit-frame-pointer'
+  '-ffast-math'
+  '-finline-functions'
+  '-fprefetch-loop-arrays'
+  '-fgraphite-identity'
+  '-floop-nest-optimize'
+  '-ftree-vectorize'
   '-fstack-protector-strong'
   '-fstack-clash-protection'
+  '-fcf-protection'
+  '-Werror=implicit-function-declaration'
   '-Wformat'
   '-Werror=format-security'
-  '-fcf-protection'
 )
-LDFLAGS=(
+
+readonly LDFLAGS=(
+  '-Wl,-O2'
+  '-Wl,--as-needed'
+  '-Wl,--gc-sections'
+  '-Wl,--sort-common'
+  '-Wl,--hash-style=gnu'
   '-Wl,-Bsymbolic-functions'
   '-flto=auto'
   '-ffat-lto-objects'
+  '-fuse-linker-plugin'
   '-Wl,-z,relro'
+  '-Wl,-z,now'
 )
-CPPFLAGS=(
-  '-Wdate-time'
+
+readonly CPPFLAGS=(
+  '-DNDEBUG'
   '-D_FORTIFY_SOURCE=3'
   '-DDEF_ALLOW_FONT=False'
   '-DDEF_ALLOW_TCAP=False'
@@ -177,10 +195,13 @@ prepare() {
     --enable-wide-chars \
     --enable-256-color \
     --disable-tek4014 \
+    --disable-vt52 \
     --disable-imake \
     --enable-narrowproto \
     --enable-exec-xterm \
+    --enable-double-buffer \
     --enable-dabbrev \
+    --enable-block-select \
     --enable-backarrow-is-erase \
     --enable-pty-erase \
     --enable-sixel-graphics \
