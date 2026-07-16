@@ -1,3 +1,4 @@
+# CI test - this should PASS
 pkgname="github-cli-deb"
 gives="gh"
 breaks=("${gives}-bin" "${gives}-git")
