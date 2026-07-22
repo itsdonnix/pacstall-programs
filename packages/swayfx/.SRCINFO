@@ -1,0 +1,44 @@
+pkgbase = swayfx
+	pkgver = 0.5.3
+	pkgdesc = SwayFX: Sway, but with eye candy!
+	arch = amd64
+	depends = wayland-protocols
+	depends = libwayland-dev
+	depends = libpcre2-dev
+	depends = libjson-c-dev
+	depends = libpango1.0-dev
+	depends = libcairo2-dev
+	depends = libgdk-pixbuf-2.0-dev
+	depends = libdrm-dev
+	depends = libgbm-dev
+	depends = libinput-dev
+	depends = libseat-dev
+	depends = libxkbcommon-dev
+	depends = libxcb-dri3-dev
+	depends = libxcb-present-dev
+	depends = libxcb-res0-dev
+	depends = libxcb-render-util0-dev
+	depends = libxcb-ewmh-dev
+	depends = libxcb-icccm4-dev
+	depends = libliftoff-dev
+	depends = libdisplay-info-dev
+	depends = liblcms2-dev
+	depends = libpixman-1-dev
+	depends = libgles2-mesa-dev
+	makedepends = meson
+	makedepends = ninja-build
+	makedepends = pkg-config
+	makedepends = cmake
+	makedepends = git
+	makedepends = scdoc
+	license = MIT
+	maintainer = <YOUR_NAME> <YOUR_EMAIL>
+	repology = project: swayfx
+	source = https://github.com/WillPower3309/swayfx/archive/refs/tags/0.5.3.tar.gz
+	source = scenefx::https://github.com/wlrfx/scenefx.git#tag=0.4.1
+	source = wlroots::https://gitlab.freedesktop.org/wlroots/wlroots.git#tag=0.19.0
+	sha256sums = e6345e198f128520cf422b458ac8ad9759c3a6c8f633d7b722655309f8a14b9e
+	sha256sums = SKIP
+	sha256sums = SKIP
+
+pkgname = swayfx
