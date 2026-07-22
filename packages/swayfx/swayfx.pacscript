@@ -25,7 +25,9 @@ prepare() {
   mv "${srcdir}/scenefx" subprojects/scenefx
   mv "${srcdir}/wlroots" subprojects/wlroots
 
-  PKG_CONFIG_LIBDIR="/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig" \
+  pkg_config_libdir="$(pkg-config --variable=pc_path pkg-config | tr ':' '\n' | grep -v '^/usr/local/' | paste -sd:)"
+
+  PKG_CONFIG_LIBDIR="${pkg_config_libdir}" \
     LDFLAGS="${LDFLAGS:+${LDFLAGS} }-Wl,--disable-new-dtags,-rpath,/usr/local/lib/x86_64-linux-gnu" \
     meson setup build \
     -Dwerror=false \
