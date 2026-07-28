@@ -67,7 +67,7 @@ depends=(
   "libgdk-pixbuf-2.0-0"
   "libudev1"
   "libliftoff0"
-  "libdisplay-info3"
+  "libdisplay-info3 | libdisplay-info2"
   "mesa-vulkan-drivers"
 )
 
